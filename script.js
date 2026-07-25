@@ -1,7 +1,7 @@
 // Galereya rasmlari — imgbb.com (yoki boshqa) havolalarini shu yerga joylang.
 // Bo'sh qoldirilgan qatorlar hozirgi holicha (bo'sh joy) ko'rinaveradi.
 const GALLERY_IMAGES = {
-  "umumiy": "",        // Umumiy ko'rinish
+  "umumiy": "https://i.ibb.co/4g5Yh38B/IMG-20260725-175045-991.jpg",        // Umumiy ko'rinish
   "basseyn": "",       // Basseyn
   "yotoqxona": "",     // Yotoq xonalari
   "video-hovli": "",   // Video — hovli (video havolasi bo'lsa .mp4 bilan tugasin)
