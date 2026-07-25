@@ -7,6 +7,50 @@
  * title: rasm ostidagi matn (ixtiyoriy)
  * size: 'large' (2 ta katakni egallaydi) yoki 'normal'
  */
+/**
+ * Mijozlar fikri (Testimonials)
+ * Yangi fikr qo'shish uchun ro'yxatga yangi ob'ekt qo'shing.
+ */
+const TESTIMONIALS = [
+  {
+    name: "Azizbek Ismoilov",
+    text: "Oilamiz bilan dam oldik, juda tinch va shinam joy ekan. Ayniqsa basseyn toza ekanligi bizga juda yoqdi. Tavsiya qilaman!",
+    date: "Iyun 2024"
+  },
+  {
+    name: "Malika Axmedova",
+    text: "Bolalar uchun xavfsiz va qulay. Tapchan juda keng, kechki payt tog' havosi bilan dam olishning gashti bo'lakcha.",
+    date: "Iyul 2024"
+  },
+  {
+    name: "Jasur Komilov",
+    text: "Hamma narsa tayyor ekan, faqat o'zimiz bilan masalliq olib bordik xolos. Oshxona jihozlari va mangal a'lo darajada.",
+    date: "Avgust 2024"
+  }
+];
+
+/**
+ * Ko'p beriladigan savollar (FAQ)
+ */
+const FAQ_ITEMS = [
+  {
+    question: "Basseyn isitiladimi?",
+    answer: "Hozircha basseynimiz ochiq va isitilmaydi. Yozgi mavsum uchun mo'ljallangan."
+  },
+  {
+    question: "Dachada idish-tovoqlar bormi?",
+    answer: "Ha, oshxonada barcha kerakli idish-tovoqlar, qozon, mangal va sixlar mavjud."
+  },
+  {
+    question: "Necha kishi sig'adi?",
+    answer: "Dachamiz 10-12 kishilik oilalar uchun qulay qilib jihozlangan."
+  },
+  {
+    question: "Ichkilik ichish mumkinmi?",
+    answer: "Yo'q, bizning dacha faqat oilaviy va ichkiliksiz dam olish uchun mo'ljallangan."
+  }
+];
+
 const GALLERY_ITEMS = [
   { 
     type: 'image', 
@@ -207,9 +251,63 @@ async function fetchWeather() {
   }
 }
 
-// Sahifa yuklanganda ob-havoni yangilash
+// Testimonials render qilish
+function renderTestimonials() {
+  const container = document.getElementById('testimonials-grid');
+  if (!container) return;
+
+  TESTIMONIALS.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'testimonial-card';
+    card.setAttribute('data-aos', 'fade-up');
+    card.innerHTML = `
+      <div class="testimonial-quote">“</div>
+      <p class="testimonial-text">${item.text}</p>
+      <div class="testimonial-meta">
+        <span class="testimonial-name">${item.name}</span>
+        <span class="testimonial-date">${item.date}</span>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// FAQ render qilish
+function renderFAQ() {
+  const container = document.getElementById('faq-accordion');
+  if (!container) return;
+
+  FAQ_ITEMS.forEach((item, index) => {
+    const faqItem = document.createElement('div');
+    faqItem.className = 'faq-item';
+    faqItem.setAttribute('data-aos', 'fade-up');
+    faqItem.innerHTML = `
+      <button class="faq-question" aria-expanded="false">
+        ${item.question}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>${item.answer}</p>
+      </div>
+    `;
+    
+    faqItem.querySelector('.faq-question').addEventListener('click', function() {
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', !expanded);
+      faqItem.classList.toggle('active');
+    });
+    
+    container.appendChild(faqItem);
+  });
+}
+
+// Sahifa yuklanganda barchasini ishga tushirish
 document.addEventListener('DOMContentLoaded', () => {
   fetchWeather();
+  renderGallery();
+  renderTestimonials();
+  renderFAQ();
+  handleStickyCTA();
 });
 
 // Sticky Call Button ko'rinishi (Scroll qilinganda chiqadi)

@@ -454,3 +454,102 @@ h2 em { font-style: italic; color: var(--clay); font-weight: 400; }
 @media (min-width: 861px) {
   .sticky-cta { display: none; }
 }
+
+/* ===== Testimonials ===== */
+.testimonials { background: var(--paper); }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+.testimonial-card {
+  background: #fff;
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid rgba(24,32,25,0.06);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+  display: flex;
+  flex-direction: column;
+}
+.testimonial-quote {
+  font-family: var(--font-display);
+  font-size: 60px;
+  color: var(--clay);
+  line-height: 1;
+  margin-bottom: -20px;
+  opacity: 0.3;
+}
+.testimonial-text {
+  font-size: 16px;
+  color: var(--ink);
+  font-style: italic;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+.testimonial-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.testimonial-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--pine);
+}
+.testimonial-date {
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* ===== FAQ ===== */
+.faq { background: var(--stone); }
+.faq-accordion {
+  max-width: 800px;
+  margin-top: 48px;
+}
+.faq-item {
+  background: #fff;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(24,32,25,0.06);
+}
+.faq-question {
+  width: 100%;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--pine);
+  cursor: pointer;
+  text-align: left;
+}
+.faq-question svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+.faq-question[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  padding: 0 24px;
+}
+.faq-item.active .faq-answer {
+  max-height: 200px;
+  padding-bottom: 20px;
+}
+.faq-answer p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
