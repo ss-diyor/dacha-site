@@ -252,32 +252,23 @@ h2 em { font-style: italic; color: var(--clay); font-weight: 400; }
   .amen-grid { grid-template-columns: repeat(2, 1fr); }
   .pool-inner { grid-template-columns: 1fr; }
   .gallery-grid { 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 420px; /* Ikki qator sig'ishi uchun balandlik */
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-    padding: 0 20px 20px;
-    margin-left: -28px;
-    margin-right: -28px;
-    -webkit-overflow-scrolling: touch;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    overflow-x: visible;
   }
   .gallery-item {
-    flex: 0 0 260px; /* Kenglik */
-    height: calc(50% - 6px); /* Ikki qatorga bo'lish */
-    scroll-snap-align: start;
-    position: relative;
+    aspect-ratio: 1/1;
+    scroll-snap-align: none;
   }
-  /* Collage effekti: ba'zi rasmlarni balandroq qilish */
-  .gallery-item:nth-child(3n+1) {
-    height: 100%;
+  .gallery-item.span-2 {
+    grid-column: span 2;
+    aspect-ratio: 16/9;
   }
   .gallery-item img, .gallery-item video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     border-radius: 8px;
   }
   .contact-inner { grid-template-columns: 1fr; }
