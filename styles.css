@@ -170,6 +170,14 @@ h2 em { font-style: italic; color: var(--clay); font-weight: 400; }
   gap: 14px;
   margin-top: 40px;
 }
+/* Scrollbar yashirish */
+.gallery-grid::-webkit-scrollbar {
+  display: none;
+}
+.gallery-grid {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 .gallery-item {
   aspect-ratio: 4/3;
   background: var(--stone);
@@ -243,8 +251,21 @@ h2 em { font-style: italic; color: var(--clay); font-weight: 400; }
   .nav-toggle { display: flex; }
   .amen-grid { grid-template-columns: repeat(2, 1fr); }
   .pool-inner { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-item.span-2 { grid-column: span 2; }
+  .gallery-grid { 
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
+    grid-template-columns: none; /* Gridni bekor qilish */
+  }
+  .gallery-item {
+    flex: 0 0 85%; /* Ekran kengligining 85% ini egallaydi */
+    scroll-snap-align: center;
+    aspect-ratio: 1/1;
+  }
+  .gallery-item.span-2 { grid-column: auto; }
   .contact-inner { grid-template-columns: 1fr; }
   .hero-content { padding-bottom: 160px; }
   section { padding: 64px 0; }
