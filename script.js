@@ -174,3 +174,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// Ob-havo ma'lumotlarini olish (Bo'stonliq/Chirchiq hududi uchun)
+async function fetchWeather() {
+  const tempEl = document.getElementById('weather-temp');
+  if (!tempEl) return;
+
+  try {
+    // Open-Meteo API (bepul va kalit talab qilmaydi)
+    // Bo'stonliq koordinatalari: 41.65, 69.95
+    const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=41.65&longitude=69.95&current_weather=true');
+    const data = await response.json();
+    
+    if (data && data.current_weather) {
+      const temp = Math.round(data.current_weather.temperature);
+      const code = data.current_weather.weathercode;
+      
+      // Oddiy ob-havo piktogrammalari
+      let icon = '☀️';
+      if (code >= 1 && code <= 3) icon = '🌤️';
+      else if (code >= 45 && code <= 48) icon = '🌫️';
+      else if (code >= 51 && code <= 67) icon = '🌧️';
+      else if (code >= 71 && code <= 77) icon = '❄️';
+      else if (code >= 80 && code <= 82) icon = '🌦️';
+      else if (code >= 95) icon = '⛈️';
+      
+      tempEl.innerHTML = `${icon} ${temp}°C`;
+    }
+  } catch (error) {
+    console.error('Ob-havo ma\'lumotini olishda xato:', error);
+    tempEl.textContent = 'Ajoyib';
+  }
+}
+
+// Sahifa yuklanganda ob-havoni yangilash
+document.addEventListener('DOMContentLoaded', () => {
+  fetchWeather();
+});

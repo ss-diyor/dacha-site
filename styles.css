@@ -357,3 +357,15 @@ h2 em { font-style: italic; color: var(--clay); font-weight: 400; }
 @media (max-width: 860px) {
   .pool-visual { margin-top: 40px; }
 }
+
+/* ===== Weather Widget ===== */
+.weather-widget {
+  min-width: 80px;
+}
+#weather-temp {
+  color: #7FC1D6;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 520px) {
+  .hero-meta .meta-div:last-of-type { display: none; }
+}
