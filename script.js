@@ -11,6 +11,18 @@
  * Mijozlar fikri (Testimonials)
  * Yangi fikr qo'shish uchun ro'yxatga yangi ob'ekt qo'shing.
  */
+/**
+ * SOZLAMALAR (Admin uchun)
+ */
+const SETTINGS = {
+  showTestimonials: true, // Fikrlar blokini ko'rsatish (true) yoki yashirish (false)
+  showFAQ: true,          // Savol-javoblar blokini ko'rsatish
+};
+
+/**
+ * Mijozlar fikri (Testimonials)
+ * Yangi fikr qo'shish uchun ro'yxatga yangi ob'ekt qo'shing.
+ */
 const TESTIMONIALS = [
   {
     name: "Azizbek Ismoilov",
@@ -253,8 +265,16 @@ async function fetchWeather() {
 
 // Testimonials render qilish
 function renderTestimonials() {
+  const section = document.getElementById('fikrlar');
   const container = document.getElementById('testimonials-grid');
+  
+  if (!SETTINGS.showTestimonials) {
+    if (section) section.style.display = 'none';
+    return;
+  }
+
   if (!container) return;
+  container.innerHTML = '';
 
   TESTIMONIALS.forEach(item => {
     const card = document.createElement('div');
@@ -274,8 +294,16 @@ function renderTestimonials() {
 
 // FAQ render qilish
 function renderFAQ() {
+  const section = document.getElementById('faq');
   const container = document.getElementById('faq-accordion');
+
+  if (!SETTINGS.showFAQ) {
+    if (section) section.style.display = 'none';
+    return;
+  }
+
   if (!container) return;
+  container.innerHTML = '';
 
   FAQ_ITEMS.forEach((item, index) => {
     const faqItem = document.createElement('div');
@@ -301,6 +329,29 @@ function renderFAQ() {
   });
 }
 
+// Fikr qoldirish formasi logikasi
+function handleTestimonialForm() {
+  const form = document.getElementById('testimonial-form');
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('client-name').value;
+    const text = document.getElementById('client-text').value;
+
+    if (name && text) {
+      // Bu yerda fikrni serverga yuborish yoki Telegramga yuborish mumkin
+      // Hozircha foydalanuvchiga rahmatnoma ko'rsatamiz
+      form.innerHTML = `
+        <div class="form-success" data-aos="zoom-in">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <p>Rahmat! Fikringiz qabul qilindi va admin tasdig'idan so'ng saytda e'lon qilinadi.</p>
+        </div>
+      `;
+    }
+  });
+}
+
 // Sahifa yuklanganda barchasini ishga tushirish
 document.addEventListener('DOMContentLoaded', () => {
   fetchWeather();
@@ -308,6 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTestimonials();
   renderFAQ();
   handleStickyCTA();
+  handleTestimonialForm();
 });
 
 // Sticky Call Button ko'rinishi (Scroll qilinganda chiqadi)
