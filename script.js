@@ -229,3 +229,15 @@ function handleStickyCTA() {
 document.addEventListener('DOMContentLoaded', () => {
   handleStickyCTA();
 });
+
+// AOS (Animate On Scroll) kutubxonasini ishga tushirish
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 800, // Animatsiya davomiyligi (ms)
+      easing: 'ease-in-out', // Animatsiya turi
+      once: true, // Animatsiya faqat bir marta bo'lishi uchun
+      offset: 100, // Element ekranga necha px kirganda animatsiya boshlanishi
+    });
+  }
+});
