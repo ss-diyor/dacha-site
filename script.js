@@ -1,3 +1,33 @@
+// Galereya rasmlari — imgbb.com (yoki boshqa) havolalarini shu yerga joylang.
+// Bo'sh qoldirilgan qatorlar hozirgi holicha (bo'sh joy) ko'rinaveradi.
+const GALLERY_IMAGES = {
+  "umumiy": "",        // Umumiy ko'rinish
+  "basseyn": "",       // Basseyn
+  "yotoqxona": "",     // Yotoq xonalari
+  "video-hovli": "",   // Video — hovli (video havolasi bo'lsa .mp4 bilan tugasin)
+  "mangal": ""         // Mangal maydonchasi
+};
+
+document.querySelectorAll('.gallery-item').forEach(item => {
+  const key = item.dataset.gallery;
+  const url = GALLERY_IMAGES[key];
+  if (!url) return;
+
+  const isVideo = /\.(mp4|webm|mov)$/i.test(url);
+  const media = document.createElement(isVideo ? 'video' : 'img');
+  if (isVideo) {
+    media.src = url;
+    media.controls = true;
+    media.playsInline = true;
+  } else {
+    media.src = url;
+    media.alt = item.querySelector('.gallery-placeholder span')?.textContent || '';
+    media.loading = 'lazy';
+  }
+  item.innerHTML = '';
+  item.appendChild(media);
+});
+
 document.getElementById('year').textContent = new Date().getFullYear();
 
 const navToggle = document.getElementById('nav-toggle');
