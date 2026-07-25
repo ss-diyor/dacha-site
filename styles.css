@@ -104,7 +104,7 @@ a { color: inherit; text-decoration: none; }
 .meta-div { width: 1px; height: 30px; background: rgba(255,255,255,.18); }
 
 /* ===== Rules ===== */
-.rules { background: var(--pine); padding-bottom: 210px; margin-top: -1px; position: relative; z-index: 1; }
+.rules { background: var(--pine); padding: 20px 0 60px; }
 .rules-row { display: flex; gap: 16px; flex-wrap: wrap; }
 .rule-badge {
   display: inline-flex; align-items: center; gap: 10px;
@@ -117,11 +117,11 @@ a { color: inherit; text-decoration: none; }
 .rule-no svg { color: #E28C8C; }
 
 /* ===== Ridge divider ===== */
-.ridge-divider { line-height: 0; margin-top: -180px; position: relative; z-index: 2; }
-.ridge-divider svg { width: 100%; height: 70px; }
+.ridge-divider { line-height: 0; background: var(--pine); }
+.ridge-divider svg { width: 100%; height: 56px; display: block; }
 .ridge-divider path { fill: var(--paper); }
-.ridge-divider.flip { margin-top: 0; transform: scaleY(-1); }
-.ridge-divider.flip path { fill: var(--water-section, var(--pine)); }
+.ridge-divider.flip { background: var(--paper); transform: scaleY(-1); }
+.ridge-divider.flip path { fill: var(--pine); }
 
 /* ===== Section basics ===== */
 section { padding: 90px 0; }
@@ -153,7 +153,6 @@ h2 em { font-style: italic; color: var(--clay); font-weight: 400; }
 
 /* ===== Pool ===== */
 .pool { background: var(--pine); color: #fff; }
-:root { --water-section: var(--pine); }
 .pool-inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 60px; align-items: center; }
 .pool-text p { color: #C7D5C8; margin-top: 18px; max-width: 420px; font-size: 15.5px; }
 .pool-stats { display: flex; gap: 40px; margin-top: 36px; }
@@ -235,8 +234,7 @@ h2 em { font-style: italic; color: var(--clay); font-weight: 400; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .gallery-item.span-2 { grid-column: span 2; }
   .contact-inner { grid-template-columns: 1fr; }
-  .hero-content { padding-bottom: 180px; }
-  .rules { padding-bottom: 170px; }
+  .hero-content { padding-bottom: 160px; }
   section { padding: 64px 0; }
 }
 @media (max-width: 520px) {
