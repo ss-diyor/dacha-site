@@ -369,3 +369,36 @@ h2 em { font-style: italic; color: var(--clay); font-weight: 400; }
 @media (max-width: 520px) {
   .hero-meta .meta-div:last-of-type { display: none; }
 }
+
+/* ===== Sticky Call Button (Mobile Only) ===== */
+.sticky-cta {
+  position: fixed;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding: 0 28px;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.sticky-cta.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.sticky-btn {
+  width: 100%;
+  max-width: 400px;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(181, 96, 42, 0.4);
+  border-radius: 50px; /* Yumaloq dizayn */
+  padding: 16px;
+  font-size: 16px;
+}
+@media (min-width: 861px) {
+  .sticky-cta { display: none; }
+}

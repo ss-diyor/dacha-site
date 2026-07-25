@@ -211,3 +211,21 @@ async function fetchWeather() {
 document.addEventListener('DOMContentLoaded', () => {
   fetchWeather();
 });
+
+// Sticky Call Button ko'rinishi (Scroll qilinganda chiqadi)
+function handleStickyCTA() {
+  const stickyCTA = document.querySelector('.sticky-cta');
+  if (!stickyCTA) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      stickyCTA.classList.add('visible');
+    } else {
+      stickyCTA.classList.remove('visible');
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  handleStickyCTA();
+});
