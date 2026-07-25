@@ -342,3 +342,18 @@ h2 em { font-style: italic; color: var(--clay); font-weight: 400; }
   .lightbox-overlay { padding: 10px; }
   .lightbox-close { top: 10px; right: 10px; }
 }
+
+/* ===== Pool Image ===== */
+.pool-img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+.pool-img:hover {
+  transform: scale(1.02);
+}
+@media (max-width: 860px) {
+  .pool-visual { margin-top: 40px; }
+}
