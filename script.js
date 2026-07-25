@@ -21,7 +21,7 @@ const GALLERY_ITEMS = [
   },
   { 
     type: 'image', 
-    url: '', 
+    url: 'https://i.ibb.co/fdx0nWj2/IMG-20260725-175045-777.jpg', 
     title: 'Yotoqxona' 
   },
   { 
