@@ -1,0 +1,27 @@
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const navToggle = document.getElementById('nav-toggle');
+const mainNav = document.getElementById('main-nav');
+navToggle.addEventListener('click', () => {
+  const isOpen = mainNav.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
+mainNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+const mapTabs = document.querySelectorAll('.map-tab');
+mapTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    mapTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+
+    document.querySelectorAll('.map-iframe').forEach(f => f.classList.remove('active'));
+    const target = document.getElementById('map-' + tab.dataset.map);
+    if (target) target.classList.add('active');
+  });
+});
