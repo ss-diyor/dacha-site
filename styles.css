@@ -147,7 +147,7 @@ h2 em { font-style: italic; color: var(--clay); font-weight: 400; }
   transition: background .15s ease;
 }
 .amen-card:hover { background: var(--stone); }
-.amen-card svg { width: 26px; height: 26px; color: var(--moss); margin-bottom: 18px; }
+.amen-card svg { width: 26px; height: 26px; color: var(--moss); margin-bottom: 18px; stroke-linecap: round; stroke-linejoin: round; }
 .amen-name { font-family: var(--font-display); font-size: 17px; font-weight: 500; }
 .amen-detail { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
 
