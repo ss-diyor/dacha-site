@@ -16,7 +16,7 @@ const GALLERY_ITEMS = [
   },
   { 
     type: 'image', 
-    url: '', // Hozircha bo'sh, placeholder ko'rinadi
+    url: 'https://i.ibb.co/BVMVbZqB/IMG-20260725-175110-683.jpg', // Hozircha bo'sh, placeholder ko'rinadi
     title: 'Basseyn' 
   },
   { 
