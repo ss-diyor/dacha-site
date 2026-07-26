@@ -15,7 +15,7 @@
  * SOZLAMALAR (Admin uchun)
  */
 const SETTINGS = {
-  showTestimonials: true, // Fikrlar blokini ko'rsatish (true) yoki yashirish (false)
+  showTestimonials: false, // Fikrlar blokini ko'rsatish (true) yoki yashirish (false)
   showFAQ: true,          // Savol-javoblar blokini ko'rsatish
 };
 
