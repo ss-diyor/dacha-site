@@ -87,7 +87,7 @@ const GALLERY_ITEMS = [
   },
   { 
     type: 'image', 
-    url: '', 
+    url: 'https://i.ibb.co/qLGtMX7T/IMG-20260725-175110-472.jpg', 
     title: 'Mangal maydonchasi',
     size: 'large' 
   },
