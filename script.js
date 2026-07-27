@@ -82,7 +82,7 @@ const GALLERY_ITEMS = [
   },
   { 
     type: 'video', 
-    url: '', 
+    url: 'https://res.cloudinary.com/dq7lbeikv/video/upload/v1785153809/hovli_uzwjdn.mp4', 
     title: 'Hovli videosi' 
   },
   { 
